@@ -23,7 +23,7 @@ $scope.splash.show_label();
 $scope.splash.show();
 ```
 
-## `LOAD_ON_CONSTRUCT` Fix
+## Load on Construct Fix
 Previously, all elements loaded on construct we're removed once loaded the first time, this has now been fixed to load persistantly when the application construct.
 
 ## Trailing-slash in route URI's 
@@ -37,16 +37,16 @@ Added `$appuccino.config.router.REMOVE_TRAILING_SLASH` which if set to `true` wi
 ## Debugging flag and Parameters in scope
 Added `$scope.app.debugging` and `$scope.app.parameters` to the scope app object to stop code repeats and unnecessary variable setting in app hooks.
 
-## Added hook `application/view/rendered`
+## Added hook application/view/rendered
 This hook will fire when the DOM has completely loaded, this has been added so that heavy data manipulation which would cause the DOM to break rendering can be done after load.
 
-## Added hook `application/controller/post/{post_name}`
+## Added hook application/controller/post/{post_name}
 To be used where a specific post name is active.
 
-## Added hook `application/controller/post/id/{id}`
+## Added hook application/controller/post/id/{id}
 To be used where a specific post ID is active.
 
-## Added hook `application/controller/template/{template}`
+## Added hook application/controller/template/{template}
 To be used where a specific template is active. (Where template path would be `templates/demo.html` the hook would remove the extension)
 
 ```javascript
@@ -55,4 +55,24 @@ $appuccino.action.do('application/controller/template/templates/demo', function(
 });
 ```
 
-##
+## Try and Catch on application/controller/construct
+Added to improve debugging on the controller.
+
+## Reset View Y Position
+Added `$app.config.router.RESET_SCROLL_POSITION` which if set to true resets the page Y position to `0` on view change.
+
+## iOS Transition Delay
+Added `$app.config.router.IOS_DELAY` for transition iOS delay.
+
+## Background Jobs
+Added background plugin (accessible via `$appuccino.application.background`) which creates promise jobs to stop render blocking computation.
+
+## Store Files Locally
+Added cache plugin (accessible via `$scope.cache`) to store files into local storage from a URL.
+
+## Other Fixes
+- Fix to components plugin priority
+- Update to the UI for PTR (PullToRefresh)
+- Added CordovaPromiseFS and CordovaFileCache
+- Added Socket IO
+- Fix to `.map` console errors in web-animations and other stylesheets
