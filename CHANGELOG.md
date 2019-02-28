@@ -70,6 +70,15 @@ Added background plugin (accessible via `$appuccino.application.background`) whi
 ## Store Files Locally
 Added cache plugin (accessible via `$scope.cache`) to store files into local storage from a URL.
 
+```javascript
+$scope.cache.file('https://github.com/jakerb/appuccino/raw/master/src/img/appuccino-logo.png').then(function(path) {
+	if(typeof path == 'string') {
+		$scope.logo = path;
+	}
+});
+
+```
+
 ## Other Fixes
 - Fix to components plugin priority
 - Update to the UI for PTR (PullToRefresh)
