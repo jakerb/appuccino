@@ -1,0 +1,1 @@
+![Appuccino Logo](src/img/appuccino-logo.png)
