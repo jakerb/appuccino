@@ -13,4 +13,3 @@ Have a look at the <a href="https://github.com/jakerb/appuccino/blob/master/CHAN
 
 ## support
 Get in touch by contacting me at jake[at]appuccino.xyz
-<script>console.log(1)</script>
