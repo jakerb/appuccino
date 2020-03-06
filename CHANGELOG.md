@@ -1,3 +1,54 @@
+# 2.0.0
+## Major release jump!
+iOS 13 deprecation of UIWebView means that WKWebView has now been implemented throughout the Appuccino platform as well as an entirely new engine for both iOS and Android. 
+
+This latest release offers greater control of application code as well as smoother transitions, background processing and error handling.
+
+## Configurator
+Rather than having to manually set configuration within your controllers you can now make use of the `application/config` hook to set runtime configuration.
+
+```javascript
+// Add a new action hook for application/config, this will expose the config setter as $this.
+
+$appuccino.action.add('application/config', function() {
+
+	this.set({
+		ptr: false //Disable PullToRefresh
+		swipe: false //Disable Edge Swipe
+		config: {
+			router: {
+				//Modify existing configuration
+				PROMPT_FETCH_RELOAD: false ,
+
+				//Add your own custom variables
+				CUSTOM_VAR: 'Hello World'
+			}
+		}
+	});
+
+});
+
+```
+
+### Smoother Transitions
+The core page transitions have been updated to change on construct of the controller, this reduces in-between view flash and waits for any heavy computation to complete before transitioning to the next view.
+
+### Runtime File Checking
+In previous versions of appuccino, if a file had changed, the view would load the old version and download the new version in the background, this required the user either refreshing or reloading the app to get the latest changes.
+
+In this version we have set all file changes to download and render only the latest version so you don't need to relaunch to get the latest changes.
+
+We have also added a hook to fetch changes whilst the app is running - this will check for any changes to the manifest and reload the app with the updates.
+
+```javascript
+// Use fetch to look for app changes.
+$appuccino.action.do('capacitor/application/fetch');
+```
+
+By default, a snackbar notification will appear with the message `A new version of this app is available. Update now?`this prompt can be disabled and will simply reload the app by setting `PROMPT_FETCH_RELOAD` config variable to `false`.
+
+
+
 # 1.2.0
 
 ## Toggle splash-screen text and loading bar
