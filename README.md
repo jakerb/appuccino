@@ -12,4 +12,4 @@ Check out our <a href="https://github.com/jakerb/appuccino/wiki">wiki</a> for ge
 Have a look at the <a href="https://github.com/jakerb/appuccino/blob/master/CHANGELOG.md">changelog</a> for the latest updates to the platform.
 
 ## support
-Get in touch by contacting me at jake[at]appuccino.xyz
+Get in touch by contacting me at jakebown[at]gmail.com
